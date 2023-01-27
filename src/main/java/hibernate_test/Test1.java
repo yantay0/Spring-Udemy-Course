@@ -8,20 +8,20 @@ import org.hibernate.Session;
 
 public class Test1 {
     public static void main(String[] args) {
-//        SessionFactory factory = new Configuration()
-//                .configure("hibernate.cfg.xml")
-//                .addAnnotatedClass(Employee.class)
-//                .buildSessionFactory();
-//        try{
-//            Session session = factory.getCurrentSession();
-//            Employee e = new Employee("Madina", "Yantay", "IT", 1000);
-//            session.beginTransaction();
-//            session.save(e);
-//            session.getTransaction().commit();
-//        }
-//        finally {
-//            factory.close();
-//        }
+        SessionFactory factory = new Configuration()
+                .configure("hibernate.cfg.xml")
+                .addAnnotatedClass(Employee.class)
+                .buildSessionFactory();
+        try{
+            Session session = factory.getCurrentSession();
+            Employee e = new Employee("Madina", "Yantay", "IT", 1000);
+            session.beginTransaction();
+            session.save(e);
+            session.getTransaction().commit();
+        }
+        finally {
+            factory.close();
+        }
 
 
     }
