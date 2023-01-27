@@ -6,7 +6,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.Session;
 
 
-public class Test1 {
+public class Test2 {
     public static void main(String[] args) {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
@@ -14,11 +14,17 @@ public class Test1 {
                 .buildSessionFactory();
         try{
             Session session = factory.getCurrentSession();
-            Employee e = new Employee("Leyla", "Bekturgan", "IT", 1000);
+            Employee e = new Employee("Oleg", "Sidorov", "HR", 200);
             session.beginTransaction();
             session.save(e);
+//            session.getTransaction().commit();
+//            System.out.println(e);
+            int id = e.getId();
+//            session = factory.getCurrentSession();
+//            session.beginTransaction();
+            Employee e1 = session.get(Employee.class, id);
             session.getTransaction().commit();
-            System.out.println(e);
+            System.out.println(e1);
         }
         finally {
             factory.close();
