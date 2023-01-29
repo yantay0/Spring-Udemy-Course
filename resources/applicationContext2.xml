@@ -11,7 +11,7 @@
     <context:property-placeholder location="classpath:resources/myApp.properties"></context:property-placeholder>
 
     <bean id = "myPet"
-          class = "spring_intro.Dog"
+          class = "com.example.springudemycourse.spring_intro.Dog"
 
           scope="prototype">
     </bean>
