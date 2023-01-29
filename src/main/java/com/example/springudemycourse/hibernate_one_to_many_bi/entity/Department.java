@@ -22,7 +22,7 @@ public class Department {
     @Column(name="min_salary")
     private int minSalary;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "department_id")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "department", fetch = FetchType.LAZY)
     private List<Employee> employeeList;
     public Department(){}
     public Department(String departmentName, int maxSalary, int minSalary) {
@@ -32,7 +32,7 @@ public class Department {
     }
 
     public void addEmployeeToDepartment(Employee employee){
-        if(employeeList.isEmpty()){
+        if(employeeList==null){
             employeeList = new ArrayList<>();
         }
         employeeList.add(employee);
